@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { ReactComponent as Polygon } from '../svg/polygon.svg';
 import anime from 'animejs'
 import styled from 'styled-components';
 
@@ -48,13 +49,6 @@ const MainWrapper = styled.div`
   button:hover:before {
     background-color: #6DCFF6;
   }
-  .generic, .generic2, .generic3 {
-    height: 100px;
-    width: 100px;
-    border-radius: 5px;
-    border: 10px solid #233042;
-    margin-bottom: 25px;
-  }
 `;
 
 export default function Component1() {
@@ -63,20 +57,17 @@ export default function Component1() {
 
   useEffect(() => {
     animation.current = anime.timeline({
-      easing: "easeInOutBack",
+      easing: "easeInOutExpo",
+      direction: 'alternate',
       duration: 2000,
-      // autoplay: false,
+      autoplay: false,
     });
     animation.current.add({
-      targets: [".generic", ".generic2", ".generic3"],
-      keyframes: [
-        {translateY: -40},
-        {translateX: 250},
-        {translateY: 40},
-        {translateX: 0},
-        {translateY: 0}
-      ],
-      // easing: 'easeOutElastic(1, .8)',
+      targets: ['.svg-attributes-demo polygon', 'feTurbulence', 'feDisplacementMap'],
+      points: '64 128 8.574 96 8.574 32 64 0 119.426 32 119.426 96',
+      baseFrequency: 0,
+      scale: 1,
+      loop: true,
     })
   }, []);
 
@@ -93,9 +84,9 @@ export default function Component1() {
       >
         {playing ? 'stop' : 'play'}
       </button>
-      <div className='generic'/>
-      <div className='generic2'/>
-      <div className='generic3'/>
+      <div className="demo-content align-center svg-attributes-demo">
+        <Polygon />
+      </div>
     </MainWrapper>
   )
 }

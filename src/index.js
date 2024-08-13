@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NotFound from './NotFound';
 import Component1 from "./components/Component1";
+import Component2 from "./components/Component2";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,8 @@ root.render(
       <Router>
         <Routes>
           <Route exact path="/" element={<App />} />
-          <Route path="/component1" element={<Component1 />} />
+          <Route path="/component1" element={<Component1 />} />\
+          <Route path="/component2" element={<Component2 />} />
           <Route element={<NotFound />} />
         </Routes>
       </Router>
