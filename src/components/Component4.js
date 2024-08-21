@@ -57,13 +57,58 @@ const MainWrapper = styled.div`
   }
 `;
 
-export default function Component1() {
+export default function Component4() {
   const [playing, setPlaying] = useState(false);
   const animation = useRef(null);
+  // const promiseElement = useRef(null);
 
   useEffect(() => {
     playing ? animation.current?.play() : animation.current?.pause();
   }, [playing]);
+
+  // const onFinished = () => {
+  //   console.log("onFinished");
+  //   animation.current = anime.timeline({
+  //     easing: "easeInOutQuint",
+  //     duration: 900,
+  //     autoplay: false
+  //   })
+  //   animation.current.add({
+  //     targets: ".generic",
+  //     translateX: 500,
+  //   })
+  //   animation.current.play();
+  // }
+
+  // useEffect(() => {
+  //   animation.current = anime.timeline({
+  //     easing: "easeInOutQuint",
+  //     duration: 900,
+  //     autoplay: false,
+  //     changeComplete: (anim) => {
+  //       console.log("changeComplete ", anim)
+  //     }
+  //   })
+  //   animation.current.add({
+  //     targets: ".generic",
+  //     translateX: 250,
+  //     translateY: 250,
+  //     scale: 1.7,
+  //     rotate: 200
+  //   })
+  //   promiseElement.current = anime.timeline({
+  //     easing: "easeInOutQuint",
+  //     duration: 900,
+  //     autoplay: false,
+  //   })
+  //   promiseElement.current.add({
+  //     targets: ".generic",
+  //     translateX: 500
+  //   })
+  //   animation.current.finished.then(onFinished)
+  // }, []);
+
+
 
   const handleClick = () => {
     setPlaying((prevValue) => !prevValue);
